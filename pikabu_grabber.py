@@ -22,7 +22,7 @@ def pikabu_parse(home, headers):
     print(len(stories))
     print(stories[-2])
 
-    paramload = {'twitmode': '1', 'of': 'v2', 'page': '1', '_': cookies['ulfs']}
+    paramload = {'twitmode': '1', 'of': 'v2', 'page': '2', '_': cookies['ulfs']}
     request = session.get(home, data=paramload, cookies=cookies)
 
     print(request.status_code)
@@ -32,7 +32,7 @@ def pikabu_parse(home, headers):
 
     stories2 = soup.find_all('header', class_='story__header')
     print(len(stories2))
-    print(stories[-2])
+    print(stories2[-2])
 
 
 if __name__ == '__main__':
