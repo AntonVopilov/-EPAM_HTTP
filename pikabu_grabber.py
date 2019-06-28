@@ -4,6 +4,7 @@ from collections import Counter
 
 import config
 from bs4 import BeautifulSoup
+import json
 
 HOME = 'https://pikabu.ru/'
 
@@ -87,7 +88,10 @@ def pikabu_parse(home, headers):
     print(request.status_code)
 
     make_auth(session)
-    print(parse_stories(session, 50))
+    most_popular_tags = parse_stories(session, 50)
+
+    with open('most_popular_tags.json', 'w') as file:
+        json.dump(most_popular_tags, file)
 
 
 if __name__ == '__main__':
